@@ -31,9 +31,10 @@ from .structures.welcome import welcome as Welcome
 from .structures import animal as Animal
 from .structures import filters as Filter
 from .structures import anime as Anime
+from .structures import others as Other
 
 
-#TODO
+# TODO
 
 # __all__ = [
 #     "Animal",

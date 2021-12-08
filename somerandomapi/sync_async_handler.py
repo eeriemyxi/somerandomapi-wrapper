@@ -6,7 +6,7 @@ class SyncAsyncHandler:
         self.sync_func = sync_func
         self.async_func = async_func
         self.args = args
-        self.kwargs = {k:v for k,v in kwargs.items() if v is not None}
+        self.kwargs = {k: v for k, v in kwargs.items() if v is not None}
 
     def __enter__(self):
         return self.sync_func(*self.args, **self.kwargs)

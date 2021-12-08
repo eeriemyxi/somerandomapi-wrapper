@@ -13,10 +13,12 @@ class API_ERROR(Exception):
 
 
 class GET:
-    def __init__(self, endpoint: Union[tuple[str], str], queries: Optional[dict] = None):
+    def __init__(
+        self, endpoint: Union[tuple[str, ...], str], queries: Optional[dict] = None
+    ):
         self.endpoint = endpoint
         self.queries = queries if queries else dict()
-        self.queries = {k:str(v) for k, v in self.queries.items() if v is not None}
+        self.queries = {k: str(v) for k, v in self.queries.items() if v is not None}
         self.base_url = URL(BASE_URL)
 
     def __enter__(self):
@@ -46,8 +48,8 @@ class GET:
                 raise API_ERROR(error, resp.status_code)
             else:
                 return resp
-        elif "image" in content_type:
-            return resp.content
+        else:
+            return resp
 
     def __exit__(self, exc_type, exc, tb):
         pass

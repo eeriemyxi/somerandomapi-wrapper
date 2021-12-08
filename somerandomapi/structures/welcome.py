@@ -73,7 +73,9 @@ async def async_get_welcome(**queries):
     query = Query(queries)
     queries.pop("image", None)
     queries.pop("background", None)
-    async with http.GET(("welcome", "img", str(query.image), query.background), queries) as response:
+    async with http.GET(
+        ("welcome", "img", str(query.image), query.background), queries
+    ) as response:
         return response
 
 
