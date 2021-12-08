@@ -43,5 +43,7 @@ Easy, isn't it?
 
 # How to install
 - First clone the repository.
+- Install the packages listed in [requirements.txt](/requirements.txt)
+    - `py -m pip install -r requirements.txt`
 - Copy the folder [somerandomapi](/somerandomapi) to where you want to use it.
 - You may then use the wrapper by importing `somerandomapi`.
