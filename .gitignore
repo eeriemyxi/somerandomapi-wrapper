@@ -149,3 +149,4 @@ mkdocs.yml
 tests.py
 /html
 /docs
+/.vscode
