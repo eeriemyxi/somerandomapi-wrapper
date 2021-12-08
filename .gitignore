@@ -147,6 +147,4 @@ cython_debug/
 # Others
 mkdocs.yml
 tests.py
-/html
-/docs
 /.vscode
