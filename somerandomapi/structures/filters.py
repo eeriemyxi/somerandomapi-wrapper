@@ -71,8 +71,8 @@ def green(avatar: str, key: str) -> IO:
     return endpoint(green, avatar=avatar, key=key)
 
 
-def bloo(avatar: str, key: str) -> IO:
-    return endpoint(bloo, avatar=avatar, key=key)
+def blue(avatar: str, key: str) -> IO:
+    return endpoint(blue, avatar=avatar, key=key)
 
 
 def blurple(avatar: str, key: str) -> IO:
@@ -85,3 +85,6 @@ def blurple2(avatar: str, key: str) -> IO:
 
 def color(avatar: str, color: Optional[str] = None, key: Optional[str] = None) -> IO:
     return endpoint("color", avatar=avatar, key=key, color=color)
+
+def blur(avatar: str, key: Optional[str] = None) -> IO:
+    return endpoint("blur", avatar=avatar, key=key)
