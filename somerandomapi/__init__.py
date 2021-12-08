@@ -28,11 +28,30 @@ SOFTWARE.
 
 from . import http
 from .structures.welcome import welcome as Welcome
-from .structures import animal as Animal
-from .structures import filters as Filter
-from .structures import anime as Anime
-from .structures import others as Other
 
+# from .structures import animal as Animal
+from .structures.animal import Animal, AnimalResponse
+from .structures.filters import Filter
+
+# from .structures import anime as Anime
+from .structures.anime import Anime
+from .structures.others import Other, MC, Lyrics, Meme, MCNameHistory
+
+__all__ = [
+    "Animal",
+    "AnimalResponse",
+    "Anime",
+    "Filter",
+    "Other",
+    "Welcome",
+    "MC",
+    "Lyrics",
+    "Meme",
+    "MCNameHistory",
+]
+# __pdoc__ = {
+#     "structures":
+# }
 
 # TODO
 
@@ -54,6 +73,7 @@ from .structures import others as Other
 # __pdoc__ = {
 #     "structures": False,
 #     "http": False,
-#     "constants": False,
+#     "endpoint": False,
 #     "sync_async_handler": False,
+#     # ".structures.animal.AnimalResponse": AnimalResponse
 # }

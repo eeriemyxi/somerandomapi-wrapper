@@ -1,5 +1,5 @@
-from somerandomapi.endpoint import Endpoint
 from typing import Optional, IO
+from somerandomapi.endpoint import Endpoint
 from somerandomapi import http
 from dataclasses import dataclass
 
@@ -80,38 +80,38 @@ def endpoint_handler(endpoint: str, resp):
         return resp["joke"]
 
 
-endpoint = Endpoint(_get_other, _async_get_other)
+_endpoint = Endpoint(_get_other, _async_get_other)
+
+class Other:
+    meme: Meme = _endpoint("meme")
 
 
-meme: Meme = endpoint("meme")
+    joke: str = _endpoint("joke")
 
 
-joke: str = endpoint("joke")
+    def chatbot(message: str, key: str) -> str:
+        return _endpoint("chatbot", message=message, key=key)
 
 
-def chatbot(message: str, key: str) -> str:
-    return endpoint(chatbot, message=message, key=key)
+    def mc(username: str) -> MC:
+        return _endpoint("mc", username=username)
 
 
-def mc(username: str) -> MC:
-    return endpoint(mc, username=username)
+    def lyrics(title: str) -> Lyrics:
+        return _endpoint("lyrics", title=title)
 
 
-def lyrics(title: str) -> Lyrics:
-    return endpoint(lyrics, title=title)
+    def colorviewer(hex: str) -> IO:
+        return _endpoint("canvas/colorviewer", hex=hex)
 
 
-def colorviewer(hex: str) -> IO:
-    return endpoint("canvas/colorviewer", hex=hex)
-
-
-def youtube_comment(
-    avatar: str, username: str, comment: str, key: Optional[str] = None
-) -> IO:
-    return endpoint(
-        "canvas/youtube-comment",
-        username=username,
-        avatar=avatar,
-        comment=comment,
-        key=key,
-    )
+    def youtube_comment(
+        avatar: str, username: str, comment: str, key: Optional[str] = None
+    ) -> IO:
+        return _endpoint(
+            "canvas/youtube-comment",
+            username=username,
+            avatar=avatar,
+            comment=comment,
+            key=key,
+        )

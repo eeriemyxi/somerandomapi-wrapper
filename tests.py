@@ -3,7 +3,8 @@ import asyncio
 
 
 async def main():
-    async with somerandomapi.Other.joke as r:
+    async with somerandomapi.Anime.hug as r:
         print(r)
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())

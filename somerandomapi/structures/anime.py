@@ -3,41 +3,31 @@ Docs: https://some-random-api.ml/docs/endpoints/animu
 
 Attributes
 ----------
-- wink: `AnimeResponse`
-- pat: `AnimeResponse`
-- hug: `AnimeResponse`
+- wink: `str`
+- pat: `str`
+- hug: `str`
 """
 
-from dataclasses import dataclass
 from somerandomapi import http
 from somerandomapi.endpoint import Endpoint
 
 
-@dataclass
-class AnimeResponse:
-    """
-    Attributes
-    ----------
-    - link: `str`
-    """
-    link: str
+class Anime:
+    async def _async_get_anime(category: str):
+        async with http.GET(("animu", category.lower())) as response:
+            get = response.json().get
+            return get("link")
 
-async def _async_get_anime(category: str):
-    async with http.GET(("animu", category.lower())) as response:
-        get = response.json().get
-        DC = AnimeResponse(link=get("link"))
-        return DC
+    def _get_anime(category: str):
+        with http.GET(("animu", category.lower())) as response:
+            get = response.json().get
+            return get("link")
 
-def _get_anime(category: str):
-    with http.GET(("animu", category.lower())) as response:
-        get = response.json().get
-        DC = AnimeResponse(link=get("link"))
-        return DC
 
-endpoint = Endpoint(_get_anime, _async_get_anime)
+    _endpoint = Endpoint(_get_anime, _async_get_anime)
 
-wink: AnimeResponse = endpoint("end")
-pat: AnimeResponse = endpoint("pat")
-hug: AnimeResponse = endpoint("hug")
-face_palm: AnimeResponse = endpoint("face-palm")
-quote: AnimeResponse = endpoint("quote")
+    wink: str = _endpoint("end")
+    pat: str = _endpoint("pat")
+    hug: str = _endpoint("hug")
+    face_palm: str = _endpoint("face-palm")
+    quote: str= _endpoint("quote")
