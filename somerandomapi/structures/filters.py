@@ -1,145 +1,83 @@
+"""
+Docs: https://some-random-api.ml/docs/canvas/filter
+
+Methods
+-------
+- greyscale
+- invert
+- invert_greyscale
+- brightness
+- threshold
+- sepia
+- red
+- green
+- bloo
+- blurple
+- blurple2
+- color
+"""
+
 from typing import Optional, IO
 from somerandomapi import http
-from somerandomapi.constants import FILTERS
-from somerandomapi.sync_async_handler import SyncAsyncHandler
+from somerandomapi.endpoint import Endpoint
 
 
-class FilterData:
-    def __init__(self, filter, get_filter, async_get_filter):
-        self.filter = filter
-        self.get_filter = get_filter
-        self.async_get_filter = async_get_filter
-
-    def __call__(self, avatar: str, key: str):
-        """
-        Attributes
-        ----------
-        - avatar
-        - key
-        """
-        return SyncAsyncHandler(
-            self.get_filter, self.async_get_filter, self.filter, avatar=avatar, key=key
-        )
+async def _async_get_filter(filter: str, **queries: dict) -> IO:
+    async with http.GET(("canvas", filter.lower()), queries) as response:
+        return response
 
 
-class FilterColor(FilterData):
-    def __call__(
-        self, avatar: str, color: Optional[str] = None, key: Optional[str] = None
-    ):
-        """
-        Attributes
-        ----------
-        - avatar
-        - color
-        - key
-        """
-        return SyncAsyncHandler(
-            self.get_filter,
-            self.async_get_filter,
-            self.filter,
-            avatar=avatar,
-            color=color,
-            key=key,
-        )
+def _get_filter(filter: str, **queries: dict) -> IO:
+    with http.GET(("canvas", filter.lower()), queries) as response:
+        return response
+
+endpoint = Endpoint(_get_filter, _async_get_filter)
+
+def greyscale(avatar: str, key: str) -> IO:
+    return endpoint(greyscale, avatar=avatar, key=key)
 
 
-class FilterThreshold(FilterData):
-    def __call__(
-        self, avatar: str, threshold: Optional[str] = None, key: Optional[str] = None
-    ):
-        """
-        Attributes
-        ----------
-        - avatar
-        - threshold
-        - key
-        """
-        return SyncAsyncHandler(
-            self.get_filter,
-            self.async_get_filter,
-            self.filter,
-            avatar=avatar,
-            threshold=threshold,
-            key=key,
-        )
+def invert(avatar: str, key: str) -> IO:
+    return endpoint(invert, avatar=avatar, key=key)
 
 
-class FilterBrightness(FilterData):
-    def __call__(
-        self, avatar: str, brightness: Optional[float] = None, key: Optional[str] = None
-    ):
-        """
-        Attributes
-        ----------
-        - avatar
-        - brightness
-        - key
-        """
-        return SyncAsyncHandler(
-            self.get_filter,
-            self.async_get_filter,
-            self.filter,
-            avatar=avatar,
-            brightness=brightness,
-            key=key,
-        )
+def invert_greyscale(avatar: str, key: str) -> IO:
+    return endpoint(invert_greyscale, avatar=avatar, key=key)
 
 
-class Filter(type):
-    def __getattr__(self, filter):
-        if filter.upper() in FILTERS:
-            args = (filter, self.get_filter, self.async_get_filter)
-            match filter.lower():
-                case "brightness":
-                    return FilterBrightness(*args)
-                case "threshold":
-                    return FilterThreshold(*args)
-                case "color":
-                    return FilterColor(*args)
-                case _:
-                    return FilterData(*args)
-        else:
-            raise AttributeError("Unknown filter.") from None
-
-    async def async_get_filter(self, filter: str, **queries: dict) -> IO:
-        async with http.GET(("canvas", filter.lower()), queries) as response:
-            return response
-
-    def get_filter(self, filter: str, **queries: dict) -> IO:
-        with http.GET(("canvas", filter.lower()), queries) as response:
-            return response
+def brightness(
+    avatar: str, brightness: Optional[float] = None, key: Optional[str] = None
+) -> IO:
+    return endpoint(brightness, avatar=avatar, key=key, brightness=brightness)
 
 
-class FilterMeta(metaclass=Filter):
-    """
-    Docs: https://some-random-api.ml/docs/canvas/filter
+def threshold(avatar: str, threshold: Optional[str] = None, key: Optional[str] = None) -> IO:
+    return endpoint(threshold, avatar=avatar, key=key, threshold=threshold)
 
-    Attributes
-    ----------
-    - greyscale: `FilterData`
-    - invert: `FilterData`
-    - invert_greyscale: `FilterData`
-    - brightness: `FilterBrightness`
-    - threshold: `FilterThreshold`
-    - sepia: `FilterData`
-    - red: `FilterData`
-    - green: `FilterData`
-    - bloo: `FilterData`
-    - blurple: `FilterData`
-    - blurple2: `FilterData`
-    - color: `FilterColor`
-    """
-    greyscale: FilterData
-    invert: FilterData
-    invert_greyscale: FilterData
-    brightness: FilterBrightness
-    threshold: FilterThreshold
-    sepia: FilterData
-    red: FilterData
-    green: FilterData
-    bloo: FilterData
-    blurple: FilterData
-    blurple2: FilterData
-    color: FilterColor
 
-    pass
+def sepia(avatar: str, key: str) -> IO:
+    return endpoint(sepia, avatar=avatar, key=key)
+
+
+def red(avatar: str, key: str) -> IO:
+    return endpoint(red, avatar=avatar, key=key)
+
+
+def green(avatar: str, key: str) -> IO:
+    return endpoint(green, avatar=avatar, key=key)
+
+
+def bloo(avatar: str, key: str) -> IO:
+    return endpoint(bloo, avatar=avatar, key=key)
+
+
+def blurple(avatar: str, key: str) -> IO:
+    return endpoint(blurple, avatar=avatar, key=key)
+
+
+def blurple2(avatar: str, key: str) -> IO:
+    return endpoint(blurple2, avatar=avatar, key=key)
+
+
+def color(avatar: str, color: Optional[str] = None, key: Optional[str] = None) -> IO:
+    return endpoint("color", avatar=avatar, key=key, color=color)

@@ -1,5 +1,5 @@
 """
-**[UNFINISHED]** An API wrapper for somerandomapi.ml
+**[UNFINISHED]** An API wrapper for some-random-api.ml
 
 License
 -------
@@ -28,33 +28,26 @@ SOFTWARE.
 
 from . import http
 from .structures.welcome import welcome as Welcome
-from .structures.animals import AnimalMeta as Animal
-from .structures.animals import AnimalResponse
-from .structures.anime import AnimeMeta as Anime
-from .structures.anime import AnimeResponse
-from .structures.filters import FilterMeta as Filter
-from .structures.filters import (
-    FilterData,
-    FilterBrightness,
-    FilterColor,
-    FilterThreshold,
-)
+from .structures import animal as Animal
+from .structures import filters as Filter
+from .structures import anime as Anime
 
-
-__all__ = [
-    "Animal",
-    "AnimalResponse",
-    "Welcome",
-    "Anime",
-    "AnimeResponse",
-    "Filter",
-    "FilterData",
-    "FilterBrightness",
-    "FilterColor",
-    "FilterThreshold",
-]
 
 #TODO
+
+# __all__ = [
+#     "Animal",
+#     "AnimalResponse",
+#     "Welcome",
+#     "Anime",
+#     "AnimeResponse",
+#     "Filter",
+#     "FilterData",
+#     "FilterBrightness",
+#     "FilterColor",
+#     "FilterThreshold",
+# ]
+
 # # FilterData = NamedTuple("FilterData", "types", "names", "rows")
 
 # __pdoc__ = {

@@ -1,6 +1,6 @@
 import httpx
 from yarl import URL
-from typing import Optional
+from typing import Optional, Union
 
 BASE_URL = "https://some-random-api.ml"
 
@@ -13,7 +13,7 @@ class API_ERROR(Exception):
 
 
 class GET:
-    def __init__(self, endpoint: tuple | str, queries: Optional[dict] = None):
+    def __init__(self, endpoint: Union[tuple[str], str], queries: Optional[dict] = None):
         self.endpoint = endpoint
         self.queries = queries if queries else dict()
         self.queries = {k:str(v) for k, v in self.queries.items() if v is not None}
