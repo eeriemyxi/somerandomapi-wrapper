@@ -1,6 +1,6 @@
 # Overview
 
-`somerandomapi` is an API Wrapper for [somerandomapi.ml](https://somerandomapi.ml/)
+`somerandomapi` is an API Wrapper for [some-random-api.ml](https://some-random-api.ml/)
 
 ## Examples
 
