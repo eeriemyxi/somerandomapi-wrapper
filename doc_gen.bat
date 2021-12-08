@@ -1,1 +1,1 @@
-sphinx-apidoc -o docs -f -e  somerandomapi somerandomapi/endpoint.py somerandomapi/http.py somerandomapi/sync_async_handler.py
+sphinx-apidoc -o docs -f -e somerandomapi somerandomapi/endpoint.py somerandomapi/http.py somerandomapi/sync_async_handler.py
