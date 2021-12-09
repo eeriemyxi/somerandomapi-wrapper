@@ -79,3 +79,64 @@ class Filter:
     @staticmethod
     def blur(avatar: str, key: Optional[str] = None) -> IO:
         return _endpoint("blur", avatar=avatar, key=key)
+
+    @staticmethod
+    def gay(avatar: str, key: Optional[str] = None) -> IO:
+        return _endpoint("gay", avatar=avatar, key=key)
+
+    @staticmethod
+    def glass(avatar: str, key: Optional[str] = None) -> IO:
+        return _endpoint("glass", avatar=avatar, key=key)
+
+    @staticmethod
+    def wasted(avatar: str, key: Optional[str] = None) -> IO:
+        return _endpoint("wasted", avatar=avatar, key=key)
+
+    @staticmethod
+    def pixelate(avatar: str, key: Optional[str] = None) -> IO:
+        return _endpoint("pixelate", avatar=avatar, key=key)
+
+    @staticmethod
+    def lolice(avatar: str, key: Optional[str] = None) -> IO:
+        return _endpoint("lolice", avatar=avatar, key=key)
+
+    @staticmethod
+    def horny_card(avatar: str, key: Optional[str] = None) -> IO:
+        return _endpoint("simp", avatar=avatar, key=key)
+
+    @staticmethod
+    def simp_card(avatar: str, key: Optional[str] = None) -> IO:
+        return _endpoint("simpcard", avatar=avatar, key=key)
+
+    @staticmethod
+    def stupid(avatar: str, dog: str, key: Optional[str] = None) -> IO:
+        return _endpoint("its-so-stupid", avatar=avatar, dog=dog, key=key)
+
+    @staticmethod
+    def triggered(avatar: str, key: Optional[str] = None) -> IO:
+        return _endpoint("triggered", avatar=avatar, key=key)
+
+    @staticmethod
+    def tweet(
+        avatar: str,
+        username: str,
+        display_name: str,
+        comment: str,
+        replies: Optional[int] = None,
+        retweets: Optional[int] = None,
+        likes: Optional[int] = None,
+        theme: str = None,
+        key: Optional[str] = None,
+    ) -> IO:
+        return _endpoint(
+            "tweet",
+            avatar=avatar,
+            username=username,
+            display_name=display_name,
+            comment=comment,
+            replies=replies,
+            retweets=retweets,
+            likes=likes,
+            theme=theme,
+            key=key,
+        )

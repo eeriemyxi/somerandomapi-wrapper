@@ -29,7 +29,9 @@ SOFTWARE.
 from . import http
 from .structures.animal import Animal, AnimalResponse
 from .structures.anime import Anime
+from .structures.fact import Fact
 from .structures.filters import Filter
+from .structures.image import Image
 from .structures.others import MC, Lyrics, MCNameHistory, Meme, Other
 from .structures.welcome import welcome as Welcome
 
@@ -39,37 +41,12 @@ __all__ = [
     "Anime",
     "Filter",
     "Other",
+    "Fact",
+    "Image",
     "Welcome",
     "MC",
     "Lyrics",
     "Meme",
     "MCNameHistory",
 ]
-# __pdoc__ = {
-#     "structures":
-# }
 
-# TODO
-
-# __all__ = [
-#     "Animal",
-#     "AnimalResponse",
-#     "Welcome",
-#     "Anime",
-#     "AnimeResponse",
-#     "Filter",
-#     "FilterData",
-#     "FilterBrightness",
-#     "FilterColor",
-#     "FilterThreshold",
-# ]
-
-# # FilterData = NamedTuple("FilterData", "types", "names", "rows")
-
-# __pdoc__ = {
-#     "structures": False,
-#     "http": False,
-#     "endpoint": False,
-#     "sync_async_handler": False,
-#     # ".structures.animal.AnimalResponse": AnimalResponse
-# }
