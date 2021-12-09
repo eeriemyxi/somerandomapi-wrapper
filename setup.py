@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="somerandomapiml",
-    version="1.0.1",
+    version="1.0.2",
     packages=["somerandomapi", "somerandomapi.structures"],
     install_requires=['httpx'],
     author="Myxi",
