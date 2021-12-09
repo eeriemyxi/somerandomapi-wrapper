@@ -1,35 +1,27 @@
 from dataclasses import dataclass
+
 from somerandomapi import http
 from somerandomapi.endpoint import Endpoint
 
 
 @dataclass
 class AnimalResponse:
-    """
-    Attributes
-    ----------
-    - fact: `str`
-    - image: `str`
-    """
-
     fact: str
     image: str
 
-class Animal:
 
+class Animal:
     async def _async_get_animal(animal: str):
         async with http.GET(("animal", animal.lower())) as response:
             get = response.json().get
             DC = AnimalResponse(fact=get("fact"), image=get("image"))
             return DC
 
-
     def _get_animal(animal: str):
         with http.GET(("animal", animal.lower())) as response:
             get = response.json().get
             DC = AnimalResponse(fact=get("fact"), image=get("image"))
             return DC
-
 
     _endpoint = Endpoint(_get_animal, _async_get_animal)
 

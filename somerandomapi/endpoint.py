@@ -1,5 +1,6 @@
-from typing import Callable, Union
 from inspect import isfunction
+from typing import Callable, Union
+
 from .sync_async_handler import SyncAsyncHandler
 
 

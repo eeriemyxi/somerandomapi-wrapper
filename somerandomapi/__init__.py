@@ -5,7 +5,7 @@ License
 -------
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) 2021 Myxi | some-random-api.ml API Wrapper
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,15 +27,11 @@ SOFTWARE.
 """
 
 from . import http
-from .structures.welcome import welcome as Welcome
-
-# from .structures import animal as Animal
 from .structures.animal import Animal, AnimalResponse
-from .structures.filters import Filter
-
-# from .structures import anime as Anime
 from .structures.anime import Anime
-from .structures.others import Other, MC, Lyrics, Meme, MCNameHistory
+from .structures.filters import Filter
+from .structures.others import MC, Lyrics, MCNameHistory, Meme, Other
+from .structures.welcome import welcome as Welcome
 
 __all__ = [
     "Animal",

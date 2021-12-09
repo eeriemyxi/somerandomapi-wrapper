@@ -23,11 +23,10 @@ class Anime:
             get = response.json().get
             return get("link")
 
-
     _endpoint = Endpoint(_get_anime, _async_get_anime)
 
     wink: str = _endpoint("end")
     pat: str = _endpoint("pat")
     hug: str = _endpoint("hug")
     face_palm: str = _endpoint("face-palm")
-    quote: str= _endpoint("quote")
+    quote: str = _endpoint("quote")

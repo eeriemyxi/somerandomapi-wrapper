@@ -17,8 +17,6 @@ def welcome(
     """
     Docs: https://some-random-api.ml/docs/canvas/welcome
 
-    Attribute
-    ---------
     - key
         - This endpoint requires a key to use but even if the key is expired it is fine.
     - image

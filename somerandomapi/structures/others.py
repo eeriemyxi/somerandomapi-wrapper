@@ -1,7 +1,8 @@
-from typing import Optional, IO
-from somerandomapi.endpoint import Endpoint
-from somerandomapi import http
 from dataclasses import dataclass
+from typing import IO, Optional
+
+from somerandomapi import http
+from somerandomapi.endpoint import Endpoint
 
 
 @dataclass
@@ -82,29 +83,29 @@ def endpoint_handler(endpoint: str, resp):
 
 _endpoint = Endpoint(_get_other, _async_get_other)
 
+
 class Other:
     meme: Meme = _endpoint("meme")
 
-
     joke: str = _endpoint("joke")
 
-
+    @staticmethod
     def chatbot(message: str, key: str) -> str:
         return _endpoint("chatbot", message=message, key=key)
 
-
+    @staticmethod
     def mc(username: str) -> MC:
         return _endpoint("mc", username=username)
 
-
+    @staticmethod
     def lyrics(title: str) -> Lyrics:
         return _endpoint("lyrics", title=title)
 
-
+    @staticmethod
     def colorviewer(hex: str) -> IO:
         return _endpoint("canvas/colorviewer", hex=hex)
 
-
+    @staticmethod
     def youtube_comment(
         avatar: str, username: str, comment: str, key: Optional[str] = None
     ) -> IO:

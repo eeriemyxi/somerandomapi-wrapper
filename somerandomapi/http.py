@@ -1,6 +1,7 @@
+from typing import Optional, Union
+
 import httpx
 from yarl import URL
-from typing import Optional, Union
 
 BASE_URL = "https://some-random-api.ml"
 
