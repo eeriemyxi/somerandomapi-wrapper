@@ -36,9 +36,11 @@ with Animal.dog as resp:
 ```
 Easy, isn't it?
 
+# [Documentation](https://m-y-x-i.github.io/somerandomapi.ml-api-wrapper/html/somerandomapi.html)
+I am not completely happy with the docs and its still being fixed but its pretty usable, [**click here to check it.**](https://m-y-x-i.github.io/somerandomapi.ml-api-wrapper/html/somerandomapi.html)
+
 # Note
 - Not all endpoints has been added yet. However those will be added soon.
-- There is currently no online documentation. I have added detailed docstrings, you can read those. DM me, `Myxi#1818` on Discord, if you are confused with anything.
 - I will not add it to Pypi until I add support for all the endpoints. Follow the steps listed below to use it.
 
 # How to install
