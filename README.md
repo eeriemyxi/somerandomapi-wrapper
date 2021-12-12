@@ -40,8 +40,7 @@ Easy, isn't it?
 I am not completely happy with the docs and its still being fixed but its pretty usable, [**click here to check it.**](https://m-y-x-i.github.io/some-random-api-API-Wrapper/html/somerandomapi.html)
 
 # Note
-- Not all endpoints has been added yet. However those will be added soon. (95% Completed.)
-- ~~I will not add it to Pypi until I add support for all the endpoints. Follow the steps listed below to use it.~~ It has been added.
+- I added support for all endpoints except `binary` and `base64` because Python has built-in libraries for those operations which are faster. However, if someone makes a good pull request for it, I will merge it.
 
 # How to install
 - Manual

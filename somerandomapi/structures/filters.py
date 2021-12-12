@@ -18,10 +18,6 @@ _endpoint = Endpoint(_get_filter, _async_get_filter)
 
 
 class Filter:
-    """
-    Docs: https://some-random-api.ml/docs/canvas/filter
-    """
-
     @staticmethod
     def greyscale(avatar: str, key: str) -> IO:
         return _endpoint("greyscale", avatar=avatar, key=key)

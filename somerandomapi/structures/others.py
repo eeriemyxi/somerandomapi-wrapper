@@ -7,12 +7,14 @@ from somerandomapi.endpoint import Endpoint
 
 @dataclass
 class MCNameHistory:
+    """This is just a dataclass. Use :meth:`somerandomapi.Other.mc`"""
     name: str
     changed_to_at: str
 
 
 @dataclass
 class MC:
+    """This is just a dataclass. Use :meth:`somerandomapi.Other.mc`"""
     username: str
     uuid: str
     name_history: list[MCNameHistory]
@@ -20,6 +22,7 @@ class MC:
 
 @dataclass
 class Lyrics:
+    """This is just a dataclass. Use :meth:`somerandomapi.Other.lyrics`"""
     title: str
     author: str
     lyrics: str
@@ -29,6 +32,7 @@ class Lyrics:
 
 @dataclass
 class Meme:
+    """This is just a dataclass. Use :meth:`somerandomapi.Other.meme`"""
     id: int
     image: str
     caption: str
@@ -79,6 +83,12 @@ def endpoint_handler(endpoint: str, resp):
         )
     elif endpoint == "joke":
         return resp["joke"]
+    
+    elif endpoint == "canvas/rgb":
+        return resp["r"], resp['g'], resp["b"]
+    
+    elif endpoint == "canvas/hex":
+        return resp["hex"]
 
 
 _endpoint = Endpoint(_get_other, _async_get_other)
@@ -116,3 +126,11 @@ class Other:
             comment=comment,
             key=key,
         )
+    
+    @staticmethod
+    def as_hex(rgb: tuple[int, int, int]) -> str:
+        return _endpoint("canvas/hex", rgb=",".join(rgb))
+
+    @staticmethod
+    def as_rgb(hex: str) -> tuple[int, int, int]:
+        return _endpoint("canvas/rgb", hex=hex)
