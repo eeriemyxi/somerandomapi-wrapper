@@ -1,5 +1,5 @@
 """
-**[UNFINISHED]** An API wrapper for some-random-api.ml
+An API wrapper for some-random-api.ml
 
 License
 -------
