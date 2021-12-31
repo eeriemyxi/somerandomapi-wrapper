@@ -6,6 +6,7 @@ from somerandomapi.endpoint import Endpoint
 
 @dataclass
 class AnimalResponse:
+    """This is just a dataclass. Use :meth:`somerandomapi.Animal`"""
     fact: str
     image: str
 

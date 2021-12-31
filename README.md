@@ -18,6 +18,7 @@ async def main():
             f"Image: {resp.image}",
             sep="\n"
         )
+
 asyncio.run(main())
 ```
 
@@ -36,8 +37,8 @@ with Animal.dog as resp:
 ```
 Easy, isn't it?
 
-# [Documentation](https://m-y-x-i.github.io/some-random-api-API-Wrapper/html/somerandomapi.html)
-I am not completely happy with the docs and its still being fixed but its pretty usable, [**click here to check it.**](https://m-y-x-i.github.io/some-random-api-API-Wrapper/html/somerandomapi.html)
+# [Documentation](https://m-y-x-i.github.io/some-random-api-wrapper/html/somerandomapi.html)
+I am not completely happy with the docs and its still being fixed but its pretty usable, [**click here to check it.**](https://m-y-x-i.github.io/some-random-api-wrapper/html/somerandomapi.html)
 
 # Note
 - I added support for all endpoints except `binary` and `base64` because Python has built-in libraries for those operations which are faster. However, if someone makes a good pull request for it, I will merge it.

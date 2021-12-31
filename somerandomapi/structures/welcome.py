@@ -21,7 +21,7 @@ def welcome(
         - This endpoint requires a key to use but even if the key is expired it is fine.
     - image
         - It must be between 1 and 7.
-    - backround
+    - background
         - Must be one of these:
             - stars
             - stars2

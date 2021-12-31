@@ -11,7 +11,6 @@ class Fact:
     def _get_image(animal: str):
         with http.GET(("facts", animal.lower())) as response:
             get = response.json().get
-            get = response.json().get
             return get("fact")
 
     _endpoint = Endpoint(_get_image, _async_get_image)
