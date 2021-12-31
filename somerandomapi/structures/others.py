@@ -83,10 +83,10 @@ def endpoint_handler(endpoint: str, resp):
         )
     elif endpoint == "joke":
         return resp["joke"]
-    
+
     elif endpoint == "canvas/rgb":
         return resp["r"], resp['g'], resp["b"]
-    
+
     elif endpoint == "canvas/hex":
         return resp["hex"]
 
@@ -126,7 +126,7 @@ class Other:
             comment=comment,
             key=key,
         )
-    
+
     @staticmethod
     def as_hex(rgb: tuple[int, int, int]) -> str:
         return _endpoint("canvas/hex", rgb=",".join(rgb))
